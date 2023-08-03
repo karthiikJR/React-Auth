@@ -11,7 +11,10 @@ app.use(cors());
 app.use("/auth", userRouter)
 
 const CON = process.env.DB_SERVER;
+const PORT = process.env.PORT;
 
 mongoose.connect(CON);
 
-app.listen(3001, ()=>{console.log("Connected to port 3001")});
+app.listen(PORT, () => {
+	console.log("Connected to port 3001");
+});
