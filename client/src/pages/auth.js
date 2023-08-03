@@ -50,13 +50,10 @@ const Register = () => {
 	const onSubmit = async (event) => {
 		event.preventDefault();
 		try {
-			const response = await axios.post(
-				"https://numbers-api.onrender.com/auth/register",
-				{
-					email,
-					password,
-				}
-			);
+			const response = await axios.post("http://localhost:3001/auth/register", {
+				email,
+				password,
+			});
 
 			console.log(response.data.message);
 			if (response.data.message === "200") {
@@ -93,13 +90,10 @@ const Login = () => {
 	const onSubmit = async (event) => {
 		event.preventDefault();
 		try {
-			const response = await axios.post(
-				"https://numbers-api.onrender.com/auth/login",
-				{
-					email,
-					password,
-				}
-			);
+			const response = await axios.post("http://localhost:3001/auth/login", {
+				email,
+				password,
+			});
 			console.log(response.data.message);
 			if (response.data.message === "404") {
 				toastNotif("User Doesn't exist!", 1);
